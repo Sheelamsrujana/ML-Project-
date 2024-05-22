@@ -1,0 +1,102 @@
+{%include "uheader.html" %}
+
+<div class="page-nav no-margin row" xmlns="http://www.w3.org/1999/html">
+                   <div class="container">
+                       <div class="row">
+                           <h2>Crop Yield Prediction</h2>
+                           <ul>
+                               <li> <a href="#"><i class="fas fa-home"></i> Home</a></li>
+                               <li><i class="fas fa-angle-double-right"></i> Prediction</li>
+                           </ul>
+                       </div>
+                   </div>
+               </div>
+
+
+
+<div style="margin-top:0px;" class="row">
+
+      </div>
+<form action="prediction" method="post">
+      <div class="row contact-rooo">
+
+           <div class="row w-100">
+
+
+            <div style="padding:20px" class="col-sm-8">
+
+                <div class="row">
+                    <div class="col-sm-8">
+                         <label>Temperature :</label>
+                        <input type="text" placeholder="Enter Temparature" name="temp" class="form-control input-sm" required ></div>
+                </div>
+                <div style="margin-top:10px;" class="row">
+
+                    <div class="col-sm-8">
+                        <label>Humidity:</label>
+                        <input type="text" name="humd" placeholder="Enter Humidity" class="form-control input-sm"  required></div>
+                </div>
+
+
+                <div style="margin-top:10px;" class="row">
+
+                    <div class="col-sm-8">
+                        <label>pH value:</label>
+                        <input type="text" name="ph" placeholder="Enter pH value" class="form-control input-sm"  required></div>
+                </div>
+
+
+                 <div style="margin-top:10px;" class="row">
+
+                    <div class="col-sm-8">
+                        <label>RainFall:</label>
+                        <input type="text" name="rain" placeholder="Enter RainFall value" class="form-control input-sm"  required></div>
+                </div>
+
+
+
+                 <div style="margin-top:10px;" class="row">
+                    <div style="padding-top:10px;" class="col-sm-3"><label></label></div>
+                    <div class="col-sm-8">
+                     <button class="btn btn-danger btn-sm">&nbsp;Prediction&nbsp;</button>
+
+
+                    </div>
+                </div>
+            </div>
+             <div class="col-sm-4">
+
+                  <div style="margin:2px" class="serv">
+
+                      {% if result %}
+
+		  <center><h4>Crop name :  <font color="red">{{ result }}</font></h4></center>
+
+                <center><h4>Area(Acres):  <font color="red">{{ area }}</font></h4></center>
+
+                  <center><h4>Production(Quintal):  <font color="red">{{ production }}</font></h4></center>
+
+                <center><h4>Crop Yield(Kgs/acre):  <font color="red">{{ crop_yield }}</font></h4></center>
+<br>
+
+    {% endif %}
+
+            <!--  <img src="{{ url_for('static',filename='assets/images/sfm.png')}}" alt="">-->
+
+
+
+           </div>
+
+
+         </div>
+
+            </div>
+        </div>
+</form>
+
+
+
+
+
+
+{%include "footer.html" %}

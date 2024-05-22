@@ -1,0 +1,81 @@
+{%include "aheader.html" %}
+<head>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+
+
+</head>
+<div class="page-nav no-margin row" xmlns="http://www.w3.org/1999/html">
+                   <div class="container">
+                       <div class="row">
+                           <h2>View Dataset</h2>
+                           <ul>
+                               <li> <a href="#"><i class="fas fa-home"></i> AdminHome</a></li>
+                               <li><i class="fas fa-angle-double-right"></i>Dataset Details</li>
+                           </ul>
+                       </div>
+                   </div>
+               </div>
+
+<div style="margin-top:0px;" class="row">
+
+      </div>
+
+
+			  {% if rawdata %}
+<br>
+<table id="customers" align="center">
+  <tr>
+    <th>Temperature</th>
+    <th>Humidity</th>
+      <th>pH</th>
+    <th>Rainfall</th>
+      <th>Class</th>
+  </tr>
+{%  for data in rawdata[0:500] %}
+	<tr><td><strong>{{data[0]}}</strong></td>
+        <td><strong>{{data[1]}}</strong></td>
+        <td><strong>{{data[2]}}</strong></td>
+        <td><strong>{{data[3]}}</strong></td>
+        <td><strong>{{data[4]}}</strong></td>
+
+
+    </tr>
+{% endfor %}
+
+
+</table>
+
+    {% endif %}
+
+
+
+
+
+{%include "footer.html" %}
